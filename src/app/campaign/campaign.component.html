@@ -1,0 +1,81 @@
+<!-- formGroup has to be named exacly as in campaignService -->
+<form
+  [formGroup]="this.campaignService.campaignForm"
+  (ngSubmit)="onSubmit()"
+  class="form"
+>
+  <!-- Campaign key-->
+  <input type="hidden" formControlName="$key" />
+
+  <!-- Campaign name -->
+  <label class="form--field">
+    <span>Campaign name:</span>
+    <input type="text" formControlName="name" />
+    <div *ngIf="submitted && formControls.name.errors">
+      This field is required
+    </div>
+  </label>
+
+  <!-- Campaign keywords -->
+  <label class="form--field">
+    <span>Campaign keywords:</span>
+    <input type="text" formControlName="keywords" />
+    
+    <div *ngIf="submitted && formControls.keywords.errors">
+      This field is required
+    </div>
+  </label>
+
+  <!-- Campaign bid -->
+  <label class="form--field">
+    <span>Bid:</span>
+    <input type="number" formControlName="bid" />
+
+    <div *ngIf="submitted && formControls.bid.errors">
+      This field is required
+    </div>
+  </label>
+
+  <!-- Campaign fund -->
+  <label class="form--field">
+    <span>Campaign fund:</span>
+    <input type="number" formControlName="fund" />
+
+    <div *ngIf="submitted && formControls.fund.errors">
+      This field is required
+    </div>
+  </label>
+
+  <!-- Campaign status -->
+  <label class="form--field">
+    <span>Campaign status:</span>
+    <select formControlName="status">
+      <option value="0">Off</option>
+      <option value="1">On</option>
+    </select>
+
+    <div *ngIf="submitted && formControls.status.errors">
+      This field is required
+    </div>
+  </label>
+
+  <!-- Campaign town -->
+  <label class="form--field">
+    <span>Town:</span>
+    <select formControlName="town">
+      <option value="0">Kraków</option>
+      <option value="1">Warszawa</option>
+      <option value="2">Wrocław</option>
+      <option value="3">Gdańsk</option>
+      <option value="4">Poznań</option>
+    </select>
+  </label>
+
+  <!-- Campaign radius -->
+  <label class="form--field">
+    <span>Radius:</span>
+    <input type="number" formControlName="radius" />
+  </label>
+
+  <input type="submit" value="Add campaign" class="form--button" />
+</form>

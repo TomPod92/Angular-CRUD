@@ -1,0 +1,18 @@
+<div class="campaigns">
+  <div class="campaigns--funds">Account: {{ emeraldsAccount }}</div>
+
+  <ul class="campaigns--list">
+    <li *ngFor="let campaign of campaignsArray" class="campaigns--item">
+      <div><b>Campaign name:</b> {{ campaign.name }}</div>
+      <div><b>Keywords:</b> {{ campaign.keywords }}</div>
+      <div><b>Bid:</b> {{ campaign.bid }}</div>
+      <div><b>Fund:</b> {{ campaign.fund }}</div>
+      <div><b>Campaign status:</b> {{ campaign.status }}</div>
+      <div><b>Town:</b> {{ campaign.town }}</div>
+      <div><b>Radius:</b> {{ campaign.radius }}</div>
+      <button (click)="campaignService.fillForm(campaign)">Edit</button>
+      <button (click)="onDelete(campaign.$key)">Delete</button>
+    </li>
+  </ul>
+  
+</div>
